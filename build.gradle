@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.zhvtsv'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral().content {
+        excludeModule("javax.media", "jai_core")
+    }
+    maven {
+        url "https://repo.osgeo.org/repository/release/"
+    }}
+
+dependencies {
+    implementation group: 'commons-io', name: 'commons-io', version: '2.14.0'
+    implementation group: 'org.geotools', name: 'gt-shapefile', version: '25.0'
+    implementation group: 'org.geotools', name: 'gt-swing', version: '25.0'
+    implementation group: 'org.geotools', name: 'gt-geotiff', version: '25.0'
+    implementation group: 'org.geotools', name: 'gt-referencing', version: '25.0'
+    implementation group: 'org.geotools', name: 'gt-epsg-hsql', version: '25.0'
+    implementation group: 'org.geotools', name: 'gt-epsg-extension', version: '25.0'
+    implementation group: 'org.geotools', name: 'gt-xml', version: '25.0'
+
+    implementation group: 'org.apache.commons', name: 'commons-configuration2', version: '2.9.0'
+    implementation group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
